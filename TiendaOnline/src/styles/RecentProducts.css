@@ -1,0 +1,140 @@
+.recent-products {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.recent-products h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    margin-bottom: 15px;
+}
+
+.product-info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.product-actions button {
+    width: auto;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos del botón Añadir al carrito */
+.product-actions .add-to-cart-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+}
+
+.product-actions .add-to-cart-btn:hover {
+    background-color: #fff;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.product-actions .add-to-cart-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Estilos del botón Leer más */
+.read-more-btn {
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.read-more-btn:hover {
+    background-color: #fff;
+    color: #2196f3;
+    border: 1px solid #2196f3;
+}
+
+/* Estilos del botón Favorito */
+.product-actions .favorite-btn {
+    background-color: #e91e63;
+    color: #fff;
+    border: none;
+}
+
+.product-actions .favorite-btn:hover {
+    background-color: #fff;
+    color: #e91e63;
+    border: 1px solid #e91e63;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}

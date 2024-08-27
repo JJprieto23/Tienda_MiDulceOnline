@@ -1,0 +1,13 @@
+.carousel-img {
+    height: 700px; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Asegura que las imágenes cubran el contenedor sin deformarse */
+}
+
+/* Opcional: Estiliza las flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para mayor visibilidad */
+    border-radius: 50%; /* Forma redonda */
+    width: 40px; /* Tamaño de las flechas */
+    height: 40px; /* Tamaño de las flechas */
+}
