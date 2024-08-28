@@ -1,0 +1,26 @@
+.products-container {
+    display: flex;
+    padding: 20px;
+}
+
+.categories-menu {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.recent-products {
+    flex: 1;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}

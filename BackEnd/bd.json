@@ -1,1 +1,298 @@
-{   }
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "user",
+      "email": "usuario1@example.com",
+      "phone": "3102217078",
+      "password": "user"
+    },
+    {
+      "id": "edfa",
+      "email": "Supercoco@gmail.com",
+      "username": "Supercoco",
+      "phone": "123456789",
+      "password": "Supercoco"
+    },
+    {
+      "id": "a593",
+      "email": "Jet@gmail.com",
+      "username": "Jet",
+      "phone": "123456789",
+      "password": "Jet"
+    },
+    {
+      "id": "e86d",
+      "email": "Nucita@gmail.com",
+      "username": "Nucita",
+      "phone": "123456789",
+      "password": "Nucita"
+    },
+    {
+      "id": "b6c4",
+      "email": "BonBonBum@gmail.com",
+      "username": "Bon Bon Bum",
+      "phone": "123456789",
+      "password": "Bon Bon Bum"
+    },
+    {
+      "id": "48f9",
+      "email": "Piazza@gmail.com",
+      "username": "Piazza",
+      "phone": "123456789",
+      "password": "Piazza"
+    }
+  ],
+  "products": [
+    {
+      "id": "6ffa",
+      "name": "Turror SuperCoco",
+      "price": "9100",
+      "discount": "15",
+      "stock": "146",
+      "category": "caramelos duros",
+      "imageUrl": "https://carulla.vtexassets.com/arquivos/ids/16965312/Turron-Supercoco-Paquete-X-50-Und-Cu-98557_a.jpg?v=638588478305400000",
+      "userId": "edfa"
+    },
+    {
+      "id": "57c1",
+      "name": "Piruleta SuperCoco",
+      "price": "10350",
+      "discount": "10",
+      "stock": "183",
+      "category": "piruletas",
+      "imageUrl": "https://villavoexpress.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzA2MjcsInB1ciI6ImJsb2JfaWQifX0=--52278c016c6102f335dd78f5f1a499672c15498d/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fZml0IjpbODAwLDgwMF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--1420d7fd3d20057726f0ef3c0043db24ca0403be/super-coco-bombom-24%20unidades-360gr.jpg?locale=es",
+      "userId": "edfa"
+    },
+    {
+      "id": "a798",
+      "name": "Tirudito SuperCoco",
+      "price": "5950",
+      "discount": "5",
+      "stock": "93",
+      "category": "caramelos blandos",
+      "imageUrl": "https://exitocol.vteximg.com.br/arquivos/ids/24071187/Tirudito-Supercoco-15-Und-1432439_a.jpg",
+      "userId": "edfa"
+    },
+    {
+      "id": "deca",
+      "name": "SuperCoco Barra",
+      "price": "10900",
+      "discount": "10",
+      "stock": "141",
+      "category": "turrones",
+      "imageUrl": "https://lagolosineria.com.co/wp-content/uploads/2024/02/Barra-SuperCoco-x-12-und.jpg",
+      "userId": "edfa"
+    },
+    {
+      "id": "c1ba",
+      "name": "Barra SuperCoco CHOCOSNACKE",
+      "price": "36000",
+      "discount": "25",
+      "stock": "39",
+      "category": "turrones",
+      "imageUrl": "https://copservir.vtexassets.com/arquivos/ids/1417892/BARRA-SUPERCOCO-CHOCOSNACKE_F.png?v=638586244306070000",
+      "userId": "edfa"
+    },
+    {
+      "id": "3918",
+      "name": "Chocolate Jet Burbujas",
+      "price": "16600",
+      "discount": "20",
+      "stock": "185",
+      "category": "chocolates",
+      "imageUrl": "https://lh3.googleusercontent.com/E8voRGOYbFMEDsJNixpAUmklhlE_zGodkx4BI_uG84h8HcA6_lovCisU1jade2Tkxzy8WUsiyvHlnAZAmh-rAK2I8E-1Kf7jrme5JApTbZj7q-Mc",
+      "userId": "a593"
+    },
+    {
+      "id": "7a66",
+      "name": "Chocolate Jet Crema",
+      "price": "18650",
+      "discount": "",
+      "stock": "68",
+      "category": "chocolates",
+      "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24070562/Crema-Esparcible-Tarro-X-350-gr-972936_b.jpg?v=638588508593900000",
+      "userId": "a593"
+    },
+    {
+      "id": "6d8a",
+      "name": "Chocolatina Jet Sabores Surtidos",
+      "price": "13000",
+      "discount": "",
+      "stock": "164",
+      "category": "chocolates",
+      "imageUrl": "https://mundodulces17.com/wp-content/uploads/2019/10/Chocolatina-JET-sabores-surtidos-x144-g_85832.jpg",
+      "userId": "a593"
+    },
+    {
+      "id": "8dee",
+      "name": "Chocolatina jet Bombom",
+      "price": "36800",
+      "discount": "30",
+      "stock": "43",
+      "category": "chocolates",
+      "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_876616-MLU74229737590_022024-O.webp",
+      "userId": "a593"
+    },
+    {
+      "id": "f63c",
+      "name": "Chocolatina jet",
+      "price": "45800",
+      "discount": "5",
+      "stock": "167",
+      "category": "chocolates",
+      "imageUrl": "https://distriplaza.co/wp-content/uploads/2020/07/Pagina-web-67.jpg",
+      "userId": "a593"
+    },
+    {
+      "id": "1422",
+      "name": "Nucita Caramelo",
+      "price": "6500",
+      "discount": "10",
+      "stock": "179",
+      "category": "caramelos duros",
+      "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24116198/Nucita-Masticable-X50-18Bs505G-NUCITA-250-gr-3411648_a.jpg?v=638591586343000000",
+      "userId": "e86d"
+    },
+    {
+      "id": "a108",
+      "name": "Nucita Galleta Waffer",
+      "price": "5200",
+      "discount": "",
+      "stock": "16",
+      "category": "galletas",
+      "imageUrl": "https://www.supermercadosantamaria.com/documents/10180/10504/29228_G.jpg",
+      "userId": "e86d"
+    },
+    {
+      "id": "6b6c",
+      "name": "Nucita Crema",
+      "price": "20000",
+      "discount": "10",
+      "stock": "42",
+      "category": "chocolates",
+      "imageUrl": "https://olimpica.vtexassets.com/arquivos/ids/1395073/7702011021953.jpg?v=638496777218400000",
+      "userId": "e86d"
+    },
+    {
+      "id": "bf74",
+      "name": "Nucita Galleta con Helado",
+      "price": "12000",
+      "discount": "40",
+      "stock": "38",
+      "category": "galletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Helados/7702011152305_A1N1_es.jpg",
+      "userId": "e86d"
+    },
+    {
+      "id": "c110",
+      "name": "Nucita",
+      "price": "8950",
+      "discount": "5",
+      "stock": "117",
+      "category": "chocolates",
+      "imageUrl": "https://villavoexpress.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTUwNTgsInB1ciI6ImJsb2JfaWQifX0=--92db61382f7db2ed2153764dc99e5ea7a1aa37b5/nucita-dulce-colombina-por-18-unidades.png?locale=es",
+      "userId": "e86d"
+    },
+    {
+      "id": "9471",
+      "name": "Bon Bon Bum Fresa",
+      "price": "7700",
+      "discount": "20",
+      "stock": "194",
+      "category": "piruletas",
+      "imageUrl": "https://dulceria.co/wp-content/uploads/2019/08/bon-bon-bum-rojo-fresa.jpg",
+      "userId": "b6c4"
+    },
+    {
+      "id": "7481",
+      "name": "Bon Bon Bum Surtido Tropical",
+      "price": "9500",
+      "discount": "5",
+      "stock": "133",
+      "category": "piruletas",
+      "imageUrl": "https://cdn1.totalcommerce.cloud/mercacentro/product-zoom/es/chupeta-bon-bon-bum-surtido-tropical-x-24-und-456-g-1.webp",
+      "userId": "b6c4"
+    },
+    {
+      "id": "82a4",
+      "name": "Bon Bon Bum Barra Masticable",
+      "price": "8900",
+      "discount": "5",
+      "stock": "145",
+      "category": "caramelos blandos",
+      "imageUrl": "https://dicoha.com.co/wp-content/uploads/2023/08/300Wx300H_7702011150325_A1N1_es_s0.jpg",
+      "userId": "b6c4"
+    },
+    {
+      "id": "05e0",
+      "name": "Bon Bon Bum Cereza",
+      "price": "8200",
+      "discount": "5",
+      "stock": "144",
+      "category": "piruletas",
+      "imageUrl": "https://dicoha.com.co/wp-content/uploads/2021/12/71.jpg",
+      "userId": "b6c4"
+    },
+    {
+      "id": "7ec2",
+      "name": "Bon Bon Bum LuloFlow",
+      "price": "8500",
+      "discount": "5",
+      "stock": "134",
+      "category": "piruletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Dulces/7702011154293_A1N1_es.jpg",
+      "userId": "b6c4"
+    },
+    {
+      "id": "4534",
+      "name": "Piazza ",
+      "price": "10000",
+      "discount": "5",
+      "stock": "100",
+      "category": "galletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Galletas/7702011272805_A1R1_es.jpg",
+      "userId": "48f9"
+    },
+    {
+      "id": "d1c6",
+      "name": "Piazza Fresa",
+      "price": "12000",
+      "discount": "5",
+      "stock": "134",
+      "category": "galletas",
+      "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_2X_904550-MCO78496233205_082024-E.webp",
+      "userId": "48f9"
+    },
+    {
+      "id": "4837",
+      "name": "Piazza Chocolate",
+      "price": "12000",
+      "discount": "10",
+      "stock": "124",
+      "category": "galletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Galletas/7702011272812_A1R1_es.jpg",
+      "userId": "48f9"
+    },
+    {
+      "id": "1c65",
+      "name": "Piazza ChocoLeche",
+      "price": "15000",
+      "discount": "20",
+      "stock": "110",
+      "category": "galletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Galletas/7702011272720_A1R1_es.jpg",
+      "userId": "48f9"
+    },
+    {
+      "id": "4cca",
+      "name": "Piazza Chicle",
+      "price": "10000",
+      "discount": "5",
+      "stock": "34",
+      "category": "galletas",
+      "imageUrl": "https://colombinacontentmanager-prd.s3.us-east-1.amazonaws.com/Galletas/7702011203380_A1R1_es.jpg",
+      "userId": "48f9"
+    }
+  ]
+}

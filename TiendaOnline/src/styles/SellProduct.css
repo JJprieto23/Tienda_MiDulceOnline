@@ -1,0 +1,70 @@
+.sell-product-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sell-product-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sell-product-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.sell-product-form input,
+.sell-product-form select {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sell-product-form select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.29289%2010.7071C7.68342%2011.0976%208.31658%2011.0976%208.70711%2010.7071L12%207.41421L15.2929%2010.7071C15.6834%2011.0976%2016.3166%2011.0976%2016.7071%2010.7071%20C17.0976%2010.3166%2017.0976%209.68342%2016.7071%209.29289L12.7071%205.29289C12.3166%204.90237%2011.6834%204.90237%2011.2929%205.29289L7.29289%209.29289C6.90237%209.68342%206.90237%2010.3166%207.29289%2010.7071Z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+}
+
+.sell-product-form .btn-primary {
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.sell-product-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #e91e63;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}

@@ -9,7 +9,6 @@ import collageImg2 from '../assets/gominolas.png';
 import collageImg3 from '../assets/piruletas.png';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
-import Footer from '../components/Footer';
 
 function Home() {
     return (
@@ -47,8 +46,8 @@ function Home() {
             </div>
             <InfoBoxes />
             <Categories />
-            <BestSellers />
             <RecentProducts />
+            <BestSellers />
             <section id="info-additional" className="info-additional">
                 <div className="container">
                     <div className="row">
@@ -77,7 +76,6 @@ function Home() {
                 </div>
             </section>
             
-            <Footer id="footer" />
         </div>
     );
 }

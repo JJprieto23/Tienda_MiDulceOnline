@@ -4,14 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Importar Bootstrap CSS
 import '../styles/Carousel.css';
 // Imágenes importadas
 
-import myImgChocolates from "../assets/chocolates.png";
+import myImgChocolates from "../assets/fondo5.png";
 import myImgPiruletas from "../assets/piruletas.png";
-import myImgGominolas from "../assets/gominolas.png";
+import myImgGominolas from "../assets/fondo4.png";
 
 const offers = [
-    { id: 1, src: myImgChocolates, alt: 'chocolates' },
-    { id: 2, src: myImgPiruletas, alt: 'piruletas' },
-    { id: 3, src: myImgGominolas, alt: 'gominolas' }
+    { id: 1, src: myImgChocolates },
+    { id: 2, src: myImgPiruletas },
+    { id: 3, src: myImgGominolas }
 ];
 
 function CarouselComponent() {
