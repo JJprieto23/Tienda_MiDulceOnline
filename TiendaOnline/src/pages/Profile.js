@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa'; // Importa el ícono de agregar
 import myImgAvatar from '../assets/avatar.png';
 import '../styles/Profile.css';
 
@@ -81,6 +81,10 @@ function Profile() {
         navigate(`/product-detail/${productId}`);
     };
 
+    const handleAddProduct = () => {
+        navigate('/sell');
+    };
+
     return (
         <div className="profile-container">
             <h2>Perfil del Usuario</h2>
@@ -110,7 +114,13 @@ function Profile() {
                         </div>
                     </div>
                     
-                    <h3>Mis Productos</h3>
+                    <div className="products-header">
+                        <h3>Mis Productos</h3>
+                        <button className="add-product-btn" onClick={handleAddProduct}>
+                            <FaPlus /> Agregar Producto
+                        </button>
+                    </div>
+
                     <div className="product-list">
                         {userProducts.length > 0 ? (
                             userProducts.map((product) => (

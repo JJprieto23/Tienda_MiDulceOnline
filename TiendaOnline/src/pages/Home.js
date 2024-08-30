@@ -10,7 +10,7 @@ import collageImg3 from '../assets/piruletas.png';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
-function Home() {
+function Home({ onAddToCart }) {
     return (
         <div className="home">
             <CarouselComponent />
@@ -46,7 +46,7 @@ function Home() {
             </div>
             <InfoBoxes />
             <Categories />
-            <RecentProducts />
+            <RecentProducts onAddToCart={onAddToCart} /> {/* Pasamos la función para agregar al carrito */}
             <BestSellers />
             <section id="info-additional" className="info-additional">
                 <div className="container">
@@ -75,7 +75,6 @@ function Home() {
                     </div>
                 </div>
             </section>
-            
         </div>
     );
 }

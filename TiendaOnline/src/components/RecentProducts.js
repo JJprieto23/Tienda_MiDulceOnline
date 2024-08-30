@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 
-function RecentProducts() {
+function RecentProducts({ onAddToCart }) {
     const [recentProducts, setRecentProducts] = useState([]);
+    const [addedProducts, setAddedProducts] = useState(new Set()); // Estado para productos agregados
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -20,6 +21,13 @@ function RecentProducts() {
         }
     };
 
+    const handleAddToCart = (product) => {
+        if (!addedProducts.has(product.id)) {
+            onAddToCart(product);
+            setAddedProducts(new Set(addedProducts).add(product.id)); // Añade el producto al set
+        }
+    };
+
     return (
         <div className="recent-products">
             <h2>Productos Agregados Recientemente</h2>
@@ -29,13 +37,14 @@ function RecentProducts() {
                     recentProducts.map(product => (
                         <ProductCard
                             key={product.id}
-                            id={product.id} // Se pasa el id del producto
+                            id={product.id}
+                            name={product.name}
                             image={product.imageUrl}
                             price={product.price}
                             discount={product.discount}
                             stock={product.stock}
                             category={product.category}
-                            onAddToCart={() => console.log(`Añadir ${product.id} al carrito`)}
+                            onAddToCart={() => handleAddToCart(product)}
                             onFavorite={() => console.log(`Añadir ${product.id} a favoritos`)}
                         />
                     ))

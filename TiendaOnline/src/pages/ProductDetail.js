@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import '../styles/ProductDetail.css';
 
-function ProductDetail() {
+function ProductDetail({ onAddToCart }) {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [comments, setComments] = useState([]);
@@ -27,7 +27,9 @@ function ProductDetail() {
     }, [productId]);
 
     const handleAddToCart = () => {
-        // Handle adding product to cart
+        if (product) {
+            onAddToCart(product); // Llama a la función pasada como prop
+        }
     };
 
     const handleAddComment = async (e) => {
@@ -61,7 +63,6 @@ function ProductDetail() {
                             <img src={product.imageUrl} alt={product.name} />
                         </div>
                         <div className="product-info">
-                            
                             <h1>{product.name}</h1>
                             <p><strong>Categoría:</strong> {product.category}</p>
                             <p className="price-old">Precio: ${formatPrice(parseFloat(product.price))}</p>
@@ -81,7 +82,7 @@ function ProductDetail() {
                                     <p>Ventas: {product.salesCount || 0}</p>
                                 </div>
                                 <button className="favorites-btn">
-                                        <FaHeart />
+                                    <FaHeart />
                                 </button>
                             </div>
                         </div>

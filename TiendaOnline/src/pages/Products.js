@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import ProductCard from '../components/ProductCard';
-import CategoriesMenu from '../components/CategoriesMenu'; 
+import CategoriesMenu from '../components/CategoriesMenu';
 import '../styles/Products.css';
 
-function Products() {
-    const [recentProducts, setRecentProducts] = useState([]);
+function Products({ onAddToCart }) { // Asegúrate de recibir la función onAddToCart como prop
+    const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
     const [filteredCategory, setFilteredCategory] = useState('');
 
-    const fetchRecentProducts = useCallback(async () => {
+    const fetchProducts = useCallback(async () => {
         try {
             const response = await axios.get('http://localhost:4000/products');
             let filteredProducts = response.data;
@@ -19,16 +19,16 @@ function Products() {
                 filteredProducts = filteredProducts.filter(product => product.category === filteredCategory);
             }
 
-            setRecentProducts(filteredProducts);
+            setProducts(filteredProducts);
         } catch (err) {
-            console.error('Error fetching recent products:', err);
-            setError('Error al cargar los productos recientes.');
+            console.error('Error fetching products:', err);
+            setError('Error al cargar los productos.');
         }
     }, [filteredCategory]);
 
     useEffect(() => {
-        fetchRecentProducts();
-    }, [fetchRecentProducts]);
+        fetchProducts();
+    }, [fetchProducts]);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -43,8 +43,8 @@ function Products() {
                 <h2>Todos los Productos</h2>
                 <div className="product-list">
                     {error && <p className="error-message">{error}</p>}
-                    {recentProducts.length > 0 ? (
-                        recentProducts.map(product => (
+                    {products.length > 0 ? (
+                        products.map(product => (
                             <ProductCard
                                 key={product.id}
                                 id={product.id}
@@ -54,12 +54,12 @@ function Products() {
                                 discount={product.discount}
                                 stock={product.stock}
                                 category={product.category}
-                                onAddToCart={() => console.log(`Añadir ${product.id} al carrito`)}
+                                onAddToCart={() => onAddToCart(product)} // Añadir producto al carrito
                                 onFavorite={() => console.log(`Añadir ${product.id} a favoritos`)}
                             />
                         ))
                     ) : (
-                        <p>No hay productos recientes disponibles.</p>
+                        <p>No hay productos disponibles.</p>
                     )}
                 </div>
             </div>
