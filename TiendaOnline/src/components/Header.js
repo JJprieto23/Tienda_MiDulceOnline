@@ -31,12 +31,14 @@ function Header({ isAuthenticated, onLogout, cartItems, onCartClick, hideCartIco
                             <>
                                 <Link to="/profile">Perfil</Link>
                                 <Link to="/sell">Vender</Link>
+                                <Link to="/cart">Carrito</Link>
                                 <button onClick={onLogout} className="logout-btn">Cerrar Sesión</button>
                             </>
                         ) : (
                             <>
-                                <Link to="/register">Crear Cuenta</Link>
+                                
                                 <Link to="/login">Ingresar</Link>
+                                <Link to="/register">Crear Cuenta</Link>
                             </>
                         )}
                     </nav>

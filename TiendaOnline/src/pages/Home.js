@@ -7,7 +7,6 @@ import Categories from '../components/Categories';
 import collageImg1 from '../assets/chocolates.png';
 import collageImg2 from '../assets/gominolas.png';
 import collageImg3 from '../assets/piruletas.png';
-import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
 function Home({ onAddToCart }) {
@@ -29,7 +28,7 @@ function Home({ onAddToCart }) {
                     <p>
                         No dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda. ¡Estamos aquí para asistirte en cada paso del camino y asegurarnos de que tengas una experiencia dulce y satisfactoria con nosotros!
                     </p>
-                    <Link to="#footer" className="contact-btn">Contáctanos</Link>
+                    <a href="#footer" className="contact-btn">Contáctanos</a>
                 </div>
                 <div className="welcome-collage">
                     <div className="collage-column">

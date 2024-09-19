@@ -1,6 +1,7 @@
 .header {
     background-color: #333;
     color: #fff;
+    font-family: Arial, sans-serif; /* Asegura que la fuente sea consistente */
 }
 
 .header-top {
@@ -9,6 +10,7 @@
     align-items: center;
     padding: 1rem;
     background-color: #444;
+    border-bottom: 1px solid #555; /* Línea sutil debajo del encabezado */
 }
 
 .logo {
@@ -17,7 +19,11 @@
 
 .header-top h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Tamaño de fuente más grande para el h1 */
+    font-weight: bold;
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    color: #fff;
 }
 
 .header-actions {
@@ -44,6 +50,7 @@
     color: #fff;
     padding: 0.5rem;
     outline: none;
+    font-size: 1rem; /* Asegura que el texto en la barra de búsqueda sea legible */
 }
 
 .search-icon {
@@ -58,6 +65,7 @@
     align-items: center;
     padding: 0.5rem 1rem;
     background-color: #333;
+    border-top: 1px solid #555; /* Línea sutil encima del menú de navegación */
 }
 
 .main-nav, .account-nav {
@@ -80,15 +88,18 @@
     top: 50%; /* Ajusta la distancia desde la parte superior de la ventana */
     right: 20px; /* Ajusta la distancia desde la parte derecha de la ventana */
     z-index: 1000; /* Asegura que el ícono esté por encima de otros elementos */
-    background-color: #fff; /* Añadir un fondo blanco o cualquier otro color que prefieras */
+    background-color: #fff; /* Fondo blanco para el contenedor del ícono */
     padding: 10px;
     border-radius: 50%;
     border: solid #4CAF50 1px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto de notificación */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-icon {
-    font-size: 2rem; /* Aumenta o reduce según tus preferencias */
+    font-size: 2rem; /* Tamaño del ícono */
     color: #4CAF50; /* Color del ícono */
 }
 
@@ -100,19 +111,20 @@
     color: white;
     border-radius: 50%;
     padding: 2px 6px;
-    font-size: 15px;
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+    font-weight: bold;
 }
-/* Estilos existentes... */
 
+/* Estilos para el botón de cerrar sesión */
 .logout-btn {
     background: none;
     border: none;
-    color: #007bff;
+    color: #ff5722;
     cursor: pointer;
     font-size: 1rem;
     text-decoration: underline;
 }
 
 .logout-btn:hover {
-    color: #0056b3;
+    color: #ff9822;
 }

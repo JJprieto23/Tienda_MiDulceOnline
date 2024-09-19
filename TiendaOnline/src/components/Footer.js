@@ -25,9 +25,9 @@ const Footer = () => {
         </div>
         <div style={footerSectionStyle}>
           <h3 style={footerHeadingStyle}>Información Adicional</h3>
-          <p><a href="/politicas-de-privacidad">Políticas de Privacidad</a></p>
-          <p><a href="/terminos-y-condiciones">Términos y Condiciones</a></p>
-          <p><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></p>
+          <p><a style={footerInfoStyle} href="/politicas-de-privacidad">Políticas de Privacidad</a></p>
+          <p><a style={footerInfoStyle} href="/terminos-y-condiciones">Términos y Condiciones</a></p>
+          <p><a style={footerInfoStyle} href="/preguntas-frecuentes">Preguntas Frecuentes</a></p>
         </div>
       </div>
       <div style={footerBottomStyle}>
@@ -73,5 +73,9 @@ const footerBottomStyle = {
   padding: '10px 20px',
   borderTop: '1px solid #444',
 };
+
+const footerInfoStyle = {
+  color: '#ff5722',
+}
 
 export default Footer;

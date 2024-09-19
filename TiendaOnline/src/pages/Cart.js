@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Cart.css';
 import { FaTrashAlt } from 'react-icons/fa';
-import Alert from '../components/Alert'; // Asegúrate de importar el componente de alerta
+import Alert from '../components/Alert'; 
+import axios from 'axios';
 
 // Función para formatear números con separadores de miles
 const formatPrice = (price) => {
@@ -9,7 +10,6 @@ const formatPrice = (price) => {
 };
 
 function Cart({ cartItems, onRemoveFromCart }) {
-    // Estado local para manejar las cantidades de los productos
     const [quantities, setQuantities] = useState(
         cartItems.reduce((acc, item) => {
             acc[item.id] = 1; // Inicializa la cantidad en 1 para cada producto
@@ -17,22 +17,25 @@ function Cart({ cartItems, onRemoveFromCart }) {
         }, {})
     );
 
-    // Estado para manejar las alertas
     const [alert, setAlert] = useState(null);
 
     // Función para manejar la disminución de cantidad
     const handleDecrease = (id) => {
         setQuantities((prevQuantities) => {
-            const newQuantity = Math.max(prevQuantities[id] - 1, 1); // Asegura que la cantidad no sea menor a 1
+            const newQuantity = Math.max(prevQuantities[id] - 1, 1); 
             return { ...prevQuantities, [id]: newQuantity };
         });
     };
 
     // Función para manejar el incremento de cantidad
-    const handleIncrease = (id) => {
+    const handleIncrease = (id, stock) => {
         setQuantities((prevQuantities) => {
-            const newQuantity = prevQuantities[id] + 1; // Incrementa la cantidad
-            return { ...prevQuantities, [id]: newQuantity };
+            if (prevQuantities[id] >= stock) {
+                // Mostrar alerta si intenta añadir más productos que el stock disponible
+                setAlert({ message: `No puedes añadir más de ${stock} unidades al carrito.`, type: 'error' });
+                return prevQuantities;
+            }
+            return { ...prevQuantities, [id]: prevQuantities[id] + 1 };
         });
     };
 
@@ -57,16 +60,42 @@ function Cart({ cartItems, onRemoveFromCart }) {
         return calculateTotalPriceWithoutDiscount() - calculateTotalPrice();
     };
 
+    // Función para actualizar el stock en la base JSON
+    const updateStockInDatabase = async () => {
+        try {
+            const promises = cartItems.map(item => {
+                const updatedStock = item.stock - quantities[item.id]; 
+                return axios.put(`http://localhost:4000/products/${item.id}`, { ...item, stock: updatedStock });
+            });
+            await Promise.all(promises);
+        } catch (error) {
+            console.error("Error actualizando el stock:", error);
+        }
+    };
+
     // Manejar la acción de comprar
-    const handlePurchase = () => {
+    const handlePurchase = async () => {
+        // Verificar si hay productos con cantidad mayor que el stock o si algún producto tiene 0 en stock
+        const outOfStockItems = cartItems.filter(item => item.stock < quantities[item.id]);
+        const zeroStockItems = cartItems.filter(item => item.stock === 0);
+
+        if (zeroStockItems.length > 0) {
+            setAlert({ message: "Uno o más productos están fuera de stock.", type: "error" });
+            return;
+        }
+
+        if (outOfStockItems.length > 0) {
+            setAlert({ message: "Tienes productos que exceden el stock disponible.", type: "error" });
+            return;
+        }
+
         if (window.confirm("¿Estás seguro de que quieres comprar estos productos?")) {
-            // Si el usuario confirma, muestra alerta de compra realizada y recarga la página
+            await updateStockInDatabase();
             setAlert({ message: "Compra realizada", type: "success" });
             setTimeout(() => {
                 window.location.reload();
-            }, 2000); // Espera 2 segundos antes de recargar para mostrar la alerta
+            }, 2000);
         } else {
-            // Si el usuario cancela, muestra alerta de compra rechazada
             setAlert({ message: "Compra rechazada", type: "error" });
         }
     };
@@ -90,7 +119,7 @@ function Cart({ cartItems, onRemoveFromCart }) {
                                             <h3 className="p-name">{item.name}</h3>
                                             <p className="p-category">Categoría: {item.category}</p>
                                             <p className="p-stock">Stock: {item.stock}</p>
-                                            <p className="p-stock">{item.discount}%</p>
+                                            <p className="p-discount">{item.discount}%</p>
                                         </div>
                                         <button onClick={() => onRemoveFromCart(item.id)} className="d-button">
                                             <FaTrashAlt />
@@ -106,18 +135,14 @@ function Cart({ cartItems, onRemoveFromCart }) {
                                         <span className="q-display">{quantities[item.id]}</span>
                                         <button 
                                             className="a-button" 
-                                            onClick={() => handleIncrease(item.id)}
+                                            onClick={() => handleIncrease(item.id, item.stock)} // Pasamos el stock a la función
                                         >
                                             +
                                         </button>
                                     </div>
                                     <div className="p-prices">
-                                        <p className="p-price">$
-                                            {formatPrice(item.price * quantities[item.id])}
-                                        </p>
-                                        <p className="d-price">$
-                                            {formatPrice((item.price - (item.price * item.discount / 100)) * quantities[item.id])}
-                                        </p>
+                                        <p className="p-price">$ {formatPrice(item.price * quantities[item.id])}</p>
+                                        <p className="d-price">$ {formatPrice((item.price - (item.price * item.discount / 100)) * quantities[item.id])}</p>
                                     </div>
                                 </div>
                             ))}
@@ -134,21 +159,16 @@ function Cart({ cartItems, onRemoveFromCart }) {
                     </div>
                     <div className="s-details">
                         <p>Total Sin Descuento:</p>
-                        <p className="t-price-no-discount">$
-                            {formatPrice(calculateTotalPriceWithoutDiscount())}
-                        </p>
+                        <p className="t-price-no-discount">$ {formatPrice(calculateTotalPriceWithoutDiscount())}</p>
                     </div>
                     <div className="s-details">
                         <p>Descuento Aplicado:</p>
-                        <p className="discount-applied">$
-                            {formatPrice(calculateTotalDiscount())}
-                        </p>
+                        <p className="discount-applied">$ {formatPrice(calculateTotalDiscount())}</p>
                     </div>
                     <button className="c-button" onClick={handlePurchase}>Comprar</button>
                 </div>
             </div>
 
-            {/* Mostrar alerta si existe */}
             {alert && (
                 <Alert 
                     message={alert.message} 

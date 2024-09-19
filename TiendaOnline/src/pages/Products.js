@@ -1,13 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom'; // Importar para leer los parámetros de la URL
 import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 import CategoriesMenu from '../components/CategoriesMenu';
 import '../styles/Products.css';
 
-function Products({ onAddToCart }) { // Asegúrate de recibir la función onAddToCart como prop
+function Products({ onAddToCart }) { 
     const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
     const [filteredCategory, setFilteredCategory] = useState('');
+
+    const location = useLocation();
+    
+    // Leer la categoría de los parámetros de la URL
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const category = params.get('category');
+        setFilteredCategory(category || ''); // Si no hay categoría, muestra todos los productos
+    }, [location.search]);
 
     const fetchProducts = useCallback(async () => {
         try {
@@ -30,17 +40,11 @@ function Products({ onAddToCart }) { // Asegúrate de recibir la función onAddT
         fetchProducts();
     }, [fetchProducts]);
 
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const category = params.get('category');
-        setFilteredCategory(category);
-    }, []);
-
     return (
         <div className="products-container">
-            <CategoriesMenu />
+            <CategoriesMenu onCategoryClick={setFilteredCategory} />
             <div className="recent-products">
-                <h2>Todos los Productos</h2>
+                <h2>{filteredCategory ? `${filteredCategory}` : 'Todos los Productos'}</h2>
                 <div className="product-list">
                     {error && <p className="error-message">{error}</p>}
                     {products.length > 0 ? (
@@ -54,7 +58,7 @@ function Products({ onAddToCart }) { // Asegúrate de recibir la función onAddT
                                 discount={product.discount}
                                 stock={product.stock}
                                 category={product.category}
-                                onAddToCart={() => onAddToCart(product)} // Añadir producto al carrito
+                                onAddToCart={() => onAddToCart(product)}
                                 onFavorite={() => console.log(`Añadir ${product.id} a favoritos`)}
                             />
                         ))

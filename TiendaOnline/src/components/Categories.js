@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Categories.css';
 import Chocolates from '../assets/chocolate.png';
 import Gelatinas from '../assets/gelatina.png';
@@ -14,27 +15,38 @@ import Turrones from '../assets/turron.png';
 import Gominolas from '../assets/gominola.png';
 
 function Categories() {
+    const navigate = useNavigate();
+
     const categories = [
-        { id: 1, title: 'Chocolates', image: Chocolates },
-        { id: 2, title: 'Gelatinas', image: Gelatinas },
-        { id: 3, title: 'Chicles', image: Chicles },
-        { id: 4, title: 'Caramelos duros', image: CaramelosDuros },
-        { id: 5, title: 'Caramelos blandos', image: CaramelosBlandos },
-        { id: 6, title: 'Malvaviscos', image: Malvaviscos },
-        { id: 7, title: 'Regaliz', image: Regaliz },
-        { id: 8, title: 'Mentas', image: Mentas },
-        { id: 9, title: 'Galletas', image: Galletas },
-        { id: 10, title: 'Piruletas', image: Piruletas },
-        { id: 11, title: 'Turrones', image: Turrones },
-        { id: 12, title: 'Gominolas', image: Gominolas },
+        { id: 1, title: 'chocolates', image: Chocolates },
+        { id: 2, title: 'gelatinas', image: Gelatinas },
+        { id: 3, title: 'chicles', image: Chicles },
+        { id: 4, title: 'caramelos duros', image: CaramelosDuros },
+        { id: 5, title: 'caramelos blandos', image: CaramelosBlandos },
+        { id: 6, title: 'malvaviscos', image: Malvaviscos },
+        { id: 7, title: 'regaliz', image: Regaliz },
+        { id: 8, title: 'mentas', image: Mentas },
+        { id: 9, title: 'galletas', image: Galletas },
+        { id: 10, title: 'piruletas', image: Piruletas },
+        { id: 11, title: 'turrones', image: Turrones },
+        { id: 12, title: 'gominolas', image: Gominolas },
     ];
 
+    // Función para manejar el clic en la categoría
+    const handleCategoryClick = (category) => {
+        navigate(`/products?category=${category}`);
+    };
+
     return (
-        <div className="categories-section">
+        <div id="categorias" className="categories-section">
             <h2>Categorías de Dulces</h2>
             <div className="categories-list">
                 {categories.map(category => (
-                    <div key={category.id} className="category-item">
+                    <div 
+                        key={category.id} 
+                        className="category-item"
+                        onClick={() => handleCategoryClick(category.title)} // Navegar a la vista de productos
+                    >
                         <div className="category-image-container">
                             <img src={category.image} alt={category.title} className="category-image" />
                             <div className="category-overlay">
